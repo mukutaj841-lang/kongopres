@@ -29,7 +29,11 @@
     <section class="hero">
         <h1>Votre Partenaire Fiscal de Confiance</h1>
         <p>Expertise locale, standards internationaux. Simplifiez votre gestion fiscale et sociale à Kinshasa.</p>
-        <button class="btn-primary" onclick="openModal()">Télécharger le calendrier fiscal</button>
+        <script id="form-script-tag-22710865"
+            src="https://meschackristo777.systeme.io/public/remote/page/3779288380826673ec240a5baff77a95f4cc0bf4.js">
+
+            </script>
+
     </section>
 
     <!-- Introduction Section -->
@@ -59,65 +63,10 @@
     </footer>
 
     <!-- Modal Form -->
-    <div id="modalForm" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2>Recevoir le Calendrier Fiscal</h2>
-            <p style="text-align: center; margin-bottom: 20px;">Remplissez ce formulaire pour accéder au simulateur et
-                au calendrier.</p>
-            <form id="downloadForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-group">
-                    <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" required>
-                </div>
-                <div class="form-group">
-                    <label for="nom">Nom de Famille</label>
-                    <input type="text" id="nom" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Adresse Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="telephone">Numéro de Téléphone</label>
-                    <input type="tel" id="telephone" required>
-                </div>
-                <button type="submit" class="btn-submit">Valider et Accéder</button>
-            </form>
-        </div>
-    </div>
+
 
     <!-- JavaScript -->
-    <script>
-        // Modal Logic
-        const modal = document.getElementById("modalForm");
 
-        function openModal() {
-            modal.style.display = "block";
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
-            // Capture Logic (Simulation)
-            const prenom = document.getElementById("prenom").value;
-            const nom = document.getElementById("nom").value;
-            console.log("Utilisateur connecté :", prenom, nom);
-
-            // Redirect to Simulator Page
-            window.location.href = "simulateur.html";
-        }
-    </script>
 </body>
 
 </html>
