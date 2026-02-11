@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs | KongoPrest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">KongoPrest</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="tarifs.html" class="active">Tarifs</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div style="height: 80px;"></div> <!-- Spacer for fixed header -->
+
+    <!-- Tarifs Section -->
+    <section id="tarifs">
+        <h2 class="section-title">Nos Offres & Paiement</h2>
+        <div class="pricing-grid">
+            <!-- Featured Plan (100$) -->
+            <div class="pricing-card featured">
+                <div
+                    style="background:var(--accent-color); color:white; padding:5px; position:absolute; top:0; left:0; width:100%; font-size:0.8rem; font-weight:bold;">
+                    MEILLEURE OFFRE</div>
+                <div class="pricing-header" style="margin-top:20px;">
+                    <h3>Abonnement DGI Intégrale</h3>
+                    <p class="price" id="displayPrice">100$ <span
+                            style="font-size:1rem; font-weight:normal; color:#555;">/ mois</span></p>
+                </div>
+                <ul class="payment-methods">
+                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Déclaration mensuelle
+                        IPR et TVA</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Calculs & émission notes
+                        de perception</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Veille fiscale
+                        permanente</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Archivage numérique
+                        sécurisé</li>
+                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Assistance en cas de
+                        contrôle</li>
+                    <li><i class="fas fa-phone-alt" style="color:var(--success-color);"></i> Support prioritaire (Mail &
+                        Tél)</li>
+                </ul>
+
+                <!-- Promo Code & Validate -->
+                <div class="promo-container">
+                    <div class="promo-input-group">
+                        <input type="text" id="promoCodeInput" class="promo-input" placeholder="Code Promo">
+                        <button class="btn-apply" onclick="applyPromo()">Appliquer</button>
+                    </div>
+                    <p id="promoMessage" style="font-size:0.8rem; margin-bottom:10px; display:none;"></p>
+
+                    <button class="btn-validate" onclick="validatePlan()">Valider l'offre</button>
+
+                    <div style="margin-top:15px; border-top:1px dashed #ccc; padding-top:10px;">
+                        <p style="font-size:0.8rem; margin-bottom:5px;">Modes de paiement acceptés :</p>
+                        <div
+                            style="display:flex; justify-content:center; gap:20px; font-size:1.5rem; color:var(--secondary-color);">
+                            <div style="text-align:center;">
+                                <i class="fas fa-mobile-alt"></i>
+                                <p style="font-size:0.6rem; font-weight:bold;">Mobile Money</p>
+                            </div>
+                            <div style="text-align:center;">
+                                <i class="fas fa-university"></i>
+                                <p style="font-size:0.6rem; font-weight:bold;">Virement</p>
+                            </div>
+                            <div style="text-align:center;">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p style="font-size:0.6rem; font-weight:bold;">Autre</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="text-align: center; padding: 20px; background: #002D62; color: white;">
+            &copy; 2024 KongoPrest. Tous droits réservés.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Promo Logic -->
+    <script>
+        function applyPromo() {
+            const input = document.getElementById("promoCodeInput");
+            const message = document.getElementById("promoMessage");
+            const priceDisplay = document.getElementById("displayPrice");
+
+            const code = input.value.trim().toUpperCase();
+
+            if (code === "KONGO24") {
+                priceDisplay.innerHTML = "80$ <span style='font-size:1rem; font-weight:normal; color:#555;'>/ mois</span> <span style='font-size:0.8rem; color:green;'>( -20% )</span>";
+                message.style.display = "block";
+                message.style.color = "green";
+                message.innerText = "Code promo appliqué avec succès !";
+                input.disabled = true;
+            } else if (code === "") {
+                message.style.display = "block";
+                message.style.color = "red";
+                message.innerText = "Veuillez entrer un code.";
+            } else {
+                message.style.display = "block";
+                message.style.color = "red";
+                message.innerText = "Code promo invalide.";
+            }
+        }
+
+        function validatePlan() {
+            alert("Merci ! Vous serez redirigé vers la page de paiement sécurisé.");
+        }
+    </script>
+</body>
+
+</html>

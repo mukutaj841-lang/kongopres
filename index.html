@@ -2,21 +2,8 @@
 <html lang="fr">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-W2GN2FDP');
-    </script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="4J9bjkYJjCvn0gX2mfnT2mTahCgczU2i7rtHBS3HCDc" />
     <title>KongoPrest | Conseil Fiscal et Social à Kinshasa</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -24,34 +11,29 @@
 
 <body>
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2GN2FDP" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <!-- Header -->
     <header>
         <nav>
             <div class="logo">KongoPrest</div>
             <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#tarifs">Tarifs</a></li>
-                <li><a href="#apropos">À Propos</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="accueil" class="hero">
+    <section class="hero">
         <h1>Votre Partenaire Fiscal de Confiance</h1>
         <p>Expertise locale, standards internationaux. Simplifiez votre gestion fiscale et sociale à Kinshasa.</p>
         <button class="btn-primary" onclick="openModal()">Télécharger le calendrier fiscal</button>
     </section>
 
     <!-- Introduction Section -->
-    <section id="introduction">
+    <section>
         <div class="intro-text-container">
             <h2 class="section-title">Votre Expert Fiscal à Kinshasa</h2>
             <p>KongoPrest est une entreprise spécialisée dans le conseil fiscal et social basée à Kinshasa. Nous
@@ -70,172 +52,6 @@
         </div>
     </section>
 
-    <!-- Hidden Success Section with Advanced Quiz -->
-    <section id="successSection" class="hidden-section">
-        <div class="success-message">
-            <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i><br>
-            Votre calendrier est dans votre boîte mail ! <br>
-            <span style="font-size: 1rem; color: #555;">En attendant, testez votre conformité fiscale en moins de 2
-                minutes.</span>
-        </div>
-
-        <div class="simulator-container" id="quizContainer">
-            <div class="simulator-header">
-                <h3>Test de Conformité Fiscale (RDC)</h3>
-                <div class="progress-bar-container"
-                    style="background:#ddd; border-radius:10px; height:10px; width:100%; margin-top:10px;">
-                    <div id="progressBar"
-                        style="background:#00BFFF; height:10px; width:0%; border-radius:10px; transition: width 0.3s;">
-                    </div>
-                </div>
-                <p style="text-align: right; font-size: 0.8rem; margin-top: 5px;">Question <span
-                        id="currentQuestionNum">1</span>/8</p>
-            </div>
-
-            <!-- Questions injected via JS -->
-            <div id="questionBox">
-                <h4 id="questionText" class="question-text">Chargement...</h4>
-                <div class="quiz-options" id="answerButtons">
-                    <!-- Buttons will be here -->
-                </div>
-            </div>
-
-            <!-- Result Box (Hidden initially) -->
-            <div id="resultBox" class="result-container" style="display: none;">
-                <div id="scoreDisplay" class="score-display">0/100</div>
-                <h4 id="resultTitle" style="margin-bottom: 15px;">Résultat</h4>
-                <p id="resultFeedback" class="feedback-text"></p>
-                <button class="btn-primary" onclick="restartQuiz()">Refaire le test</button>
-                <br><br>
-                <a href="#contact" style="color: #004aad; font-weight: bold; text-decoration: underline;">Contactez un
-                    expert pour corriger vos écarts</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <h2 class="section-title">Nos Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-file-invoice-dollar service-icon"></i>
-                <h3>Gestion Fiscale (DGI)</h3>
-                <p>Déclarations mensuelles et annuelles, assistance lors des contrôles fiscaux, et optimisation.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-users service-icon"></i>
-                <h3>Gestion Sociale (CNSS)</h3>
-                <p>Calcul des cotisations, déclarations trimestrielles, et gestion de la paie conformément à la loi.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-chart-line service-icon"></i>
-                <h3>Audit & Conseil</h3>
-                <p>Audit de conformité, restructuration fiscale et conseils stratégiques pour votre entreprise.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tarifs Section -->
-    <section id="tarifs">
-        <h2 class="section-title">Nos Offres & Paiement</h2>
-        <div class="pricing-grid">
-
-
-            <!-- Featured Plan (100$) -->
-            <div class="pricing-card featured">
-                <div
-                    style="background:var(--accent-color); color:white; padding:5px; position:absolute; top:0; left:0; width:100%; font-size:0.8rem; font-weight:bold;">
-                    MEILLEURE OFFRE</div>
-                <div class="pricing-header" style="margin-top:20px;">
-                    <h3>Abonnement DGI Intégrale</h3>
-                    <p class="price" id="displayPrice">100$ <span
-                            style="font-size:1rem; font-weight:normal; color:#555;">/ mois</span></p>
-                </div>
-                <ul class="payment-methods">
-                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Déclaration mensuelle
-                        IPR et TVA</li>
-                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Calculs & émission notes
-                        de perception</li>
-                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Veille fiscale
-                        permanente</li>
-                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Archivage numérique
-                        sécurisé</li>
-                    <li><i class="fas fa-check-circle" style="color:var(--success-color);"></i> Assistance en cas de
-                        contrôle</li>
-                    <li><i class="fas fa-phone-alt" style="color:var(--success-color);"></i> Support prioritaire (Mail &
-                        Tél)</li>
-                </ul>
-
-                <!-- Promo Code & Validate -->
-                <div class="promo-container">
-                    <div class="promo-input-group">
-                        <input type="text" id="promoCodeInput" class="promo-input" placeholder="Code Promo">
-                        <button class="btn-apply" onclick="applyPromo()">Appliquer</button>
-                    </div>
-                    <p id="promoMessage" style="font-size:0.8rem; margin-bottom:10px; display:none;"></p>
-
-                    <button class="btn-validate" onclick="validatePlan()">Valider l'offre</button>
-
-                    <div style="margin-top:15px; border-top:1px dashed #ccc; padding-top:10px;">
-                        <p style="font-size:0.8rem; margin-bottom:5px;">Modes de paiement acceptés :</p>
-                        <div
-                            style="display:flex; justify-content:center; gap:20px; font-size:1.5rem; color:var(--secondary-color);">
-                            <div style="text-align:center;">
-                                <i class="fas fa-mobile-alt"></i>
-                                <p style="font-size:0.6rem; font-weight:bold;">Mobile Money</p>
-                            </div>
-                            <div style="text-align:center;">
-                                <i class="fas fa-university"></i>
-                                <p style="font-size:0.6rem; font-weight:bold;">Virement</p>
-                            </div>
-                            <div style="text-align:center;">
-                                <i class="fas fa-ellipsis-h"></i>
-                                <p style="font-size:0.6rem; font-weight:bold;">Autre</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="apropos">
-        <h2 class="section-title">À Propos de Nous</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Une Équipe Dédiée à Votre Réussite</h3>
-                <p>Chez KongoPrest, nous croyons que la conformité fiscale ne doit pas être un fardeau, mais un levier
-                    de croissance. Notre bureau physique à Kinshasa est le centre névralgique d'une équipe passionnée
-                    d'experts-comptables et de juristes fiscalistes.</p>
-                <br>
-                <p>Nous combinons une connaissance approfondie du terrain congolais avec des méthodes de travail
-                    modernes et transparentes pour vous offrir une tranquillité d'esprit totale.</p>
-            </div>
-            <div class="about-image">
-                <img src="office_background.png" alt="Bureau KongoPrest" class="office-image">
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Contactez-Nous</h2>
-        <div class="contact-container">
-            <div class="contact-info-box">
-                <h3>Nos Coordonnées</h3>
-                <div class="contact-details">
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Boulevard du 30 Juin, Gombe, Kinshasa</p>
-                    <p><i class="fas fa-phone"></i> +243 81 000 0000</p>
-                    <p><i class="fas fa-envelope"></i> contact@kongoprest.cd</p>
-                    <p><i class="fas fa-clock"></i> Lun - Ven: 08:00 - 17:00</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div style="text-align: center; padding: 20px; background: #002D62; color: white;">
             &copy; 2024 KongoPrest. Tous droits réservés.
@@ -247,8 +63,8 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <h2>Recevoir le Calendrier Fiscal</h2>
-            <p style="text-align: center; margin-bottom: 20px;">Remplissez ce formulaire pour télécharger le document.
-            </p>
+            <p style="text-align: center; margin-bottom: 20px;">Remplissez ce formulaire pour accéder au simulateur et
+                au calendrier.</p>
             <form id="downloadForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
                     <label for="prenom">Prénom</label>
@@ -266,7 +82,7 @@
                     <label for="telephone">Numéro de Téléphone</label>
                     <input type="tel" id="telephone" required>
                 </div>
-                <button type="submit" class="btn-submit">Télécharger maintenant</button>
+                <button type="submit" class="btn-submit">Valider et Accéder</button>
             </form>
         </div>
     </div>
@@ -292,191 +108,15 @@
 
         function handleFormSubmit(event) {
             event.preventDefault();
-            // Simulate data capture
-            console.log("Données capturées");
-            closeModal();
-            const successSection = document.getElementById("successSection");
-            successSection.style.display = "block";
-            successSection.scrollIntoView({ behavior: 'smooth' });
 
-            // Start Quiz logic
-            startQuiz();
+            // Capture Logic (Simulation)
+            const prenom = document.getElementById("prenom").value;
+            const nom = document.getElementById("nom").value;
+            console.log("Utilisateur connecté :", prenom, nom);
+
+            // Redirect to Simulator Page
+            window.location.href = "simulateur.html";
         }
-
-        // --- QUIZ LOGIC ---
-        const questions = [
-            {
-                question: "1. Votre entreprise possède-t-elle un numéro d'Impôt (NIF) valide et à jour ?",
-                answers: [
-                    { text: "Oui, absolument", score: 12.5 },
-                    { text: "Je ne suis pas sûr", score: 5 },
-                    { text: "Non, pas encore", score: 0 }
-                ]
-            },
-            {
-                question: "2. Êtes-vous immatriculé au RCCM (Registre du Commerce et du Crédit Mobilier) ?",
-                answers: [
-                    { text: "Oui", score: 12.5 },
-                    { text: "En cours", score: 6 },
-                    { text: "Non", score: 0 }
-                ]
-            },
-            {
-                question: "3. Déclarez-vous et versez-vous l'IPR (Impôt sur les Revenus Professionnels) avant le 15 de chaque mois ?",
-                answers: [
-                    { text: "Oui, toujours", score: 12.5 },
-                    { text: "Parfois en retard", score: 6 },
-                    { text: "Non / Rarement", score: 0 }
-                ]
-            },
-            {
-                question: "4. Avez-vous payé votre dernier acompte d'IBP (Impôt sur les Bénéfices et Profits) ?",
-                answers: [
-                    { text: "Oui", score: 12.5 },
-                    { text: "Je ne sais pas", score: 0 },
-                    { text: "Non", score: 0 }
-                ]
-            },
-            {
-                question: "5. Êtes-vous assujetti à la TVA et effectuez-vous les déclarations mensuelles ?",
-                answers: [
-                    { text: "Oui, c'est fait", score: 12.5 },
-                    { text: "Non assujetti", score: 12.5 },
-                    { text: "Non, mais je devrais", score: 0 }
-                ]
-            },
-            {
-                question: "6. Vos employés sont-ils tous affiliés à la CNSS ?",
-                answers: [
-                    { text: "Oui, tous", score: 12.5 },
-                    { text: "Certains seulement", score: 5 },
-                    { text: "Non", score: 0 }
-                ]
-            },
-            {
-                question: "7. Êtes-vous en règle avec l'ONEM (Office National de l'Emploi) ?",
-                answers: [
-                    { text: "Oui", score: 12.5 },
-                    { text: "Non / Je ne connais pas", score: 0 }
-                ]
-            },
-            {
-                question: "8. Tenez-vous une comptabilité régulière selon le système OHADA ?",
-                answers: [
-                    { text: "Oui, rigoureusement", score: 12.5 },
-                    { text: "Plus ou moins", score: 6 },
-                    { text: "Non", score: 0 }
-                ]
-            }
-        ];
-
-        let currentQuestionIndex = 0;
-        let totalScore = 0;
-
-        function startQuiz() {
-            currentQuestionIndex = 0;
-            totalScore = 0;
-            document.getElementById("resultBox").style.display = "none";
-            document.getElementById("questionBox").style.display = "block";
-            document.querySelector(".simulator-header").style.display = "block";
-            showQuestion();
-        }
-
-        function showQuestion() {
-            let question = questions[currentQuestionIndex];
-            document.getElementById("questionText").innerText = question.question;
-            document.getElementById("currentQuestionNum").innerText = currentQuestionIndex + 1;
-
-            // Progress Bar Update
-            let progress = ((currentQuestionIndex) / questions.length) * 100;
-            document.getElementById("progressBar").style.width = progress + "%";
-
-            const answerButtons = document.getElementById("answerButtons");
-            answerButtons.innerHTML = "";
-
-            question.answers.forEach(answer => {
-                const button = document.createElement("button");
-                button.innerText = answer.text;
-                button.classList.add("quiz-btn");
-                button.onclick = () => selectAnswer(answer.score);
-                answerButtons.appendChild(button);
-            });
-        }
-
-        function selectAnswer(score) {
-            totalScore += score;
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion();
-            } else {
-                showResult();
-            }
-        }
-
-        function showResult() {
-            document.getElementById("questionBox").style.display = "none";
-            document.querySelector(".simulator-header").style.display = "none";
-            const resultBox = document.getElementById("resultBox");
-            resultBox.style.display = "block";
-
-            document.getElementById("progressBar").style.width = "100%";
-
-            let scoreText = totalScore.toFixed(0);
-            let scoreEl = document.getElementById("scoreDisplay");
-            let titleEl = document.getElementById("resultTitle");
-            let feedbackEl = document.getElementById("resultFeedback");
-
-            scoreEl.innerText = scoreText + "/100";
-
-            if (totalScore >= 80) {
-                scoreEl.className = "score-display score-color-high";
-                titleEl.innerText = "Excellent ! Conformité Élevée";
-                feedbackEl.innerText = "Félicitations, votre entreprise semble en très bonne santé fiscale. Continuez ainsi pour éviter tout risque.";
-            } else if (totalScore >= 50) {
-                scoreEl.className = "score-display score-color-med";
-                titleEl.innerText = "Attention : Conformité Moyenne";
-                feedbackEl.innerText = "Vous respectez certaines règles, mais des lacunes importantes existent. Cela vous expose à des pénalités potentielles.";
-            } else {
-                scoreEl.className = "score-display score-color-low";
-                titleEl.innerText = "Danger : Risque Fiscal Élevé";
-                feedbackEl.innerText = "Votre situation fiscale est critique. Vous risquez de lourdes amendes et des redressements. Contactez-nous urgemment.";
-            }
-        }
-
-        function restartQuiz() {
-            startQuiz();
-        }
-
-        // --- PRICING LOGIC ---
-        function applyPromo() {
-            const input = document.getElementById("promoCodeInput");
-            const message = document.getElementById("promoMessage");
-            const priceDisplay = document.getElementById("displayPrice");
-
-            const code = input.value.trim().toUpperCase();
-
-            // Example simple logic
-            if (code === "KONGO24") {
-                priceDisplay.innerHTML = "80$ <span style='font-size:1rem; font-weight:normal; color:#555;'>/ mois</span> <span style='font-size:0.8rem; color:green;'>( -20% )</span>";
-                message.style.display = "block";
-                message.style.color = "green";
-                message.innerText = "Code promo appliqué avec succès !";
-                input.disabled = true;
-            } else if (code === "") {
-                message.style.display = "block";
-                message.style.color = "red";
-                message.innerText = "Veuillez entrer un code.";
-            } else {
-                message.style.display = "block";
-                message.style.color = "red";
-                message.innerText = "Code promo invalide.";
-            }
-        }
-
-        function validatePlan() {
-            alert("Merci ! Vous serez redirigé vers la page de paiement sécurisé.");
-        }
-
     </script>
 </body>
 

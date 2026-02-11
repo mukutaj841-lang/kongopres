@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur Fiscal | KongoPrest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Override defaults for this page as it's a standalone tool */
+        .simulator-page-section {
+            padding: 100px 5% 60px;
+            /* Top padding for header */
+            text-align: center;
+        }
+
+        .simulator-container {
+            margin: 0 auto;
+            /* Ensure it is visible */
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">KongoPrest</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <section class="simulator-page-section">
+        <div class="success-message">
+            <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i><br>
+            Votre calendrier est dans votre boîte mail ! <br>
+            <span style="font-size: 1rem; color: #555;">En attendant, testez votre conformité fiscale en moins de 2
+                minutes.</span>
+        </div>
+
+        <div class="simulator-container" id="quizContainer">
+            <div class="simulator-header">
+                <h3>Test de Conformité Fiscale (RDC)</h3>
+                <div class="progress-bar-container"
+                    style="background:#ddd; border-radius:10px; height:10px; width:100%; margin-top:10px;">
+                    <div id="progressBar"
+                        style="background:#00BFFF; height:10px; width:0%; border-radius:10px; transition: width 0.3s;">
+                    </div>
+                </div>
+                <p style="text-align: right; font-size: 0.8rem; margin-top: 5px;">Question <span
+                        id="currentQuestionNum">1</span>/8</p>
+            </div>
+
+            <!-- Questions injected via JS -->
+            <div id="questionBox">
+                <h4 id="questionText" class="question-text">Chargement...</h4>
+                <div class="quiz-options" id="answerButtons">
+                    <!-- Buttons will be here -->
+                </div>
+            </div>
+
+            <!-- Result Box (Hidden initially) -->
+            <div id="resultBox" class="result-container" style="display: none;">
+                <div id="scoreDisplay" class="score-display">0/100</div>
+                <h4 id="resultTitle" style="margin-bottom: 15px;">Résultat</h4>
+                <p id="resultFeedback" class="feedback-text"></p>
+                <button class="btn-primary" onclick="restartQuiz()">Refaire le test</button>
+                <br><br>
+                <a href="contact.html" style="color: #004aad; font-weight: bold; text-decoration: underline;">Contactez
+                    un expert pour corriger vos écarts</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="text-align: center; padding: 20px; background: #002D62; color: white;">
+            &copy; 2024 KongoPrest. Tous droits réservés.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quiz -->
+    <script>
+        // --- QUIZ LOGIC ---
+        const questions = [
+            {
+                question: "1. Votre entreprise possède-t-elle un numéro d'Impôt (NIF) valide et à jour ?",
+                answers: [
+                    { text: "Oui, absolument", score: 12.5 },
+                    { text: "Je ne suis pas sûr", score: 5 },
+                    { text: "Non, pas encore", score: 0 }
+                ]
+            },
+            {
+                question: "2. Êtes-vous immatriculé au RCCM (Registre du Commerce et du Crédit Mobilier) ?",
+                answers: [
+                    { text: "Oui", score: 12.5 },
+                    { text: "En cours", score: 6 },
+                    { text: "Non", score: 0 }
+                ]
+            },
+            {
+                question: "3. Déclarez-vous et versez-vous l'IPR (Impôt sur les Revenus Professionnels) avant le 15 de chaque mois ?",
+                answers: [
+                    { text: "Oui, toujours", score: 12.5 },
+                    { text: "Parfois en retard", score: 6 },
+                    { text: "Non / Rarement", score: 0 }
+                ]
+            },
+            {
+                question: "4. Avez-vous payé votre dernier acompte d'IBP (Impôt sur les Bénéfices et Profits) ?",
+                answers: [
+                    { text: "Oui", score: 12.5 },
+                    { text: "Je ne sais pas", score: 0 },
+                    { text: "Non", score: 0 }
+                ]
+            },
+            {
+                question: "5. Êtes-vous assujetti à la TVA et effectuez-vous les déclarations mensuelles ?",
+                answers: [
+                    { text: "Oui, c'est fait", score: 12.5 },
+                    { text: "Non assujetti", score: 12.5 },
+                    { text: "Non, mais je devrais", score: 0 }
+                ]
+            },
+            {
+                question: "6. Vos employés sont-ils tous affiliés à la CNSS ?",
+                answers: [
+                    { text: "Oui, tous", score: 12.5 },
+                    { text: "Certains seulement", score: 5 },
+                    { text: "Non", score: 0 }
+                ]
+            },
+            {
+                question: "7. Êtes-vous en règle avec l'ONEM (Office National de l'Emploi) ?",
+                answers: [
+                    { text: "Oui", score: 12.5 },
+                    { text: "Non / Je ne connais pas", score: 0 }
+                ]
+            },
+            {
+                question: "8. Tenez-vous une comptabilité régulière selon le système OHADA ?",
+                answers: [
+                    { text: "Oui, rigoureusement", score: 12.5 },
+                    { text: "Plus ou moins", score: 6 },
+                    { text: "Non", score: 0 }
+                ]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let totalScore = 0;
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            totalScore = 0;
+            document.getElementById("resultBox").style.display = "none";
+            document.getElementById("questionBox").style.display = "block";
+            document.querySelector(".simulator-header").style.display = "block";
+            showQuestion();
+        }
+
+        function showQuestion() {
+            let question = questions[currentQuestionIndex];
+            document.getElementById("questionText").innerText = question.question;
+            document.getElementById("currentQuestionNum").innerText = currentQuestionIndex + 1;
+
+            // Progress Bar Update
+            let progress = ((currentQuestionIndex) / questions.length) * 100;
+            document.getElementById("progressBar").style.width = progress + "%";
+
+            const answerButtons = document.getElementById("answerButtons");
+            answerButtons.innerHTML = "";
+
+            question.answers.forEach(answer => {
+                const button = document.createElement("button");
+                button.innerText = answer.text;
+                button.classList.add("quiz-btn");
+                button.onclick = () => selectAnswer(answer.score);
+                answerButtons.appendChild(button);
+            });
+        }
+
+        function selectAnswer(score) {
+            totalScore += score;
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById("questionBox").style.display = "none";
+            document.querySelector(".simulator-header").style.display = "none";
+            const resultBox = document.getElementById("resultBox");
+            resultBox.style.display = "block";
+
+            document.getElementById("progressBar").style.width = "100%";
+
+            let scoreText = totalScore.toFixed(0);
+            let scoreEl = document.getElementById("scoreDisplay");
+            let titleEl = document.getElementById("resultTitle");
+            let feedbackEl = document.getElementById("resultFeedback");
+
+            scoreEl.innerText = scoreText + "/100";
+
+            if (totalScore >= 80) {
+                scoreEl.className = "score-display score-color-high";
+                titleEl.innerText = "Excellent ! Conformité Élevée";
+                feedbackEl.innerText = "Félicitations, votre entreprise semble en très bonne santé fiscale. Continuez ainsi pour éviter tout risque.";
+            } else if (totalScore >= 50) {
+                scoreEl.className = "score-display score-color-med";
+                titleEl.innerText = "Attention : Conformité Moyenne";
+                feedbackEl.innerText = "Vous respectez certaines règles, mais des lacunes importantes existent. Cela vous expose à des pénalités potentielles.";
+            } else {
+                scoreEl.className = "score-display score-color-low";
+                titleEl.innerText = "Danger : Risque Fiscal Élevé";
+                feedbackEl.innerText = "Votre situation fiscale est critique. Vous risquez de lourdes amendes et des redressements. Contactez-nous urgemment.";
+            }
+        }
+
+        function restartQuiz() {
+            startQuiz();
+        }
+
+        // Auto start
+        startQuiz();
+
+    </script>
+</body>
+
+</html>
